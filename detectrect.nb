@@ -1,0 +1,152 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4504,        143]
+NotebookOptionsPosition[      4061,        124]
+NotebookOutlinePosition[      4417,        140]
+CellTagsIndexPosition[      4374,        137]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"l", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<http://i.stack.imgur.com/t95sV.jpg\>\"", ",", 
+     "\"\<http://i.stack.imgur.com/MVP47.jpg\>\"", ",", 
+     "\"\<http://i.stack.imgur.com/QpiLb.jpg\>\"", ",", 
+     "\"\<http://i.stack.imgur.com/pHHZ4.jpg\>\"", ",", 
+     "\"\<http://i.stack.imgur.com/wlFpH.jpg\>\"", ",", 
+     "\"\<http://i.stack.imgur.com/x7YO9.jpg\>\"", ",", 
+     "\"\<http://i.stack.imgur.com/zCHSm.jpg\>\""}], "}"}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.602117131965382*^9, 3.602117131967098*^9}, {
+  3.602117247980157*^9, 3.6021172765902042`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"i", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ImageResize", "[", 
+      RowBox[{
+       RowBox[{"Import", "@", "#"}], ",", "500"}], "]"}], "&"}], "/@", 
+    "l"}]}]}]], "Input",
+ CellChangeTimes->{{3.602117131965382*^9, 3.602117131967098*^9}, {
+  3.602117247980157*^9, 3.6021172829867973`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"i1", "=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ColorSeparate", "[", 
+      RowBox[{"#", ",", "\"\<Saturation\>\""}], "]"}], "&"}], "/@", "i"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.602117131965382*^9, 3.602117131967098*^9}, {
+  3.602117247980157*^9, 3.602117295472849*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ie1", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"EdgeDetect", "[", 
+      RowBox[{"#", ",", "6", ",", ".04"}], "]"}], "&"}], "/@", "i1"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"dc1", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"DeleteSmallComponents", "[", 
+      RowBox[{"#", ",", "100"}], "]"}], "&"}], "/@", "ie1"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.602117131965382*^9, 3.602117131967098*^9}, {
+  3.602117247980157*^9, 3.602117295472849*^9}, {3.602117499298484*^9, 
+  3.602117516950797*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lines1", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ImageLines", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"..", "01"}], ",", ".2"}], "]"}], "&"}], "/@", "dc1"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.602117131965382*^9, 3.602117131967098*^9}, {
+  3.602117247980157*^9, 3.602117255371483*^9}, {3.602117307419046*^9, 
+  3.6021173214170732`*^9}, {3.602117530526299*^9, 3.6021175656999903`*^9}, {
+  3.602117721734723*^9, 3.6021177354752607`*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"lines1", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ImageLines", "[", 
+       RowBox[{
+        RowBox[{"EdgeDetect", "[", "#", "]"}], ",", ".15", ",", ".1"}], "]"}],
+       "&"}], "/@", "dc1"}]}], ";", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{"Thick", ",", "Red", ",", 
+          RowBox[{"Line", "/@", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], "]"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}], "&"}], "/@", 
+    RowBox[{"Transpose", "[", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "lines1"}], "}"}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.602117131965382*^9, 3.602117131967098*^9}, {
+  3.602117247980157*^9, 3.602117255371483*^9}, {3.602117307419046*^9, 
+  3.602117308328292*^9}, {3.602117573370363*^9, 3.602117604382079*^9}, {
+  3.60211769000242*^9, 3.6021177791390963`*^9}}]
+},
+WindowSize->{740, 756},
+WindowMargins->{{189, Automatic}, {Automatic, 41}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (August 26, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 613, 14, 73, "Input"],
+Cell[1173, 36, 355, 10, 43, "Input"],
+Cell[1531, 48, 335, 9, 27, "Input"],
+Cell[1869, 59, 569, 17, 58, "Input"],
+Cell[2441, 78, 520, 13, 27, "Input"],
+Cell[2964, 93, 1093, 29, 73, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

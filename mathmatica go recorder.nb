@@ -10,96 +10,15 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    152668,       2677]
-NotebookOptionsPosition[    150568,       2619]
-NotebookOutlinePosition[    150923,       2635]
-CellTagsIndexPosition[    150880,       2632]
+NotebookDataLength[    152081,       2662]
+NotebookOptionsPosition[    149884,       2602]
+NotebookOutlinePosition[    150238,       2618]
+CellTagsIndexPosition[    150195,       2615]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"img", "=", 
-     RowBox[{"ImageResize", "[", 
-      RowBox[{
-       RowBox[{"ExampleData", "[", 
-        RowBox[{"{", 
-         RowBox[{"\"\<TestImage\>\"", ",", "\"\<Lena\>\""}], "}"}], "]"}], 
-       ",", "128"}], "]"}]}], ";"}], "\n", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"nx", ",", "ny"}], "}"}], "=", 
-     RowBox[{"ImageDimensions", "[", "img", "]"}]}], ";"}], "\n", 
-   RowBox[{
-    RowBox[{"poly", "=", 
-     RowBox[{"Polygon", "[", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"10", ",", "10"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"20", ",", "100"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"120", ",", "40"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"80", ",", "10"}], "}"}]}], "}"}], "]"}]}], ";"}], "\n", 
-   RowBox[{"Show", "[", 
-    RowBox[{"Graphics", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"Inset", "[", 
-         RowBox[{"img", ",", 
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"nx", ",", "ny"}], "}"}]}], "]"}], ",", "  ", "Red", ",", 
-        RowBox[{"Opacity", "[", "0.5", "]"}], ",", "poly"}], "}"}], ",", 
-      "\[IndentingNewLine]", "                                ", 
-      RowBox[{"PlotRange", "\[Rule]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"0", ",", "nx"}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{"0", ",", "ny"}], "}"}]}], "}"}]}], ",", 
-      "\[IndentingNewLine]", "                                ", 
-      RowBox[{"ImageSize", "\[Rule]", 
-       RowBox[{"{", 
-        RowBox[{"nx", ",", "ny"}], "}"}]}]}], "]"}], "]"}], "\n", 
-   RowBox[{"mask", "=", 
-    RowBox[{
-     RowBox[{"Image", "[", 
-      RowBox[{
-       RowBox[{"Graphics", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"White", ",", "poly"}], "}"}], ",", "\[IndentingNewLine]", 
-         "                                        ", 
-         RowBox[{"Background", "\[Rule]", "Black"}], ",", 
-         "\[IndentingNewLine]", "                                        ", 
-         RowBox[{"ImageSize", "\[Rule]", 
-          RowBox[{"{", 
-           RowBox[{"nx", ",", "ny"}], "}"}]}], ",", "\[IndentingNewLine]", 
-         "                                        ", 
-         RowBox[{"PlotRange", "\[Rule]", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"0", ",", "nx"}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"0", ",", "ny"}], "}"}]}], "}"}]}]}], "]"}], ",", 
-       "\[IndentingNewLine]", "                                          ", 
-       RowBox[{"ColorSpace", "\[Rule]", "\"\<Grayscale\>\""}]}], "]"}], " ", "//",
-      "Binarize"}]}], "\n", 
-   RowBox[{"ImageMultiply", "[", 
-    RowBox[{"img", ",", "mask"}], "]"}]}]}]], "Input",
+Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.583436315438991*^9, 3.583436368120729*^9}, {
    3.5834364274413424`*^9, 3.5834364692434883`*^9}, {3.58343659158645*^9, 
    3.583436596411428*^9}, {3.583436661419263*^9, 3.583436694759347*^9}, {
@@ -171,7 +90,8 @@ Cell[BoxData[
    3.602205914191987*^9}, {3.6022060790157843`*^9, 3.602206092469095*^9}, {
    3.60220626986199*^9, 3.602206271451783*^9}, 3.6022063972732487`*^9, {
    3.60220907901328*^9, 3.602209093697915*^9}, {3.602210258982885*^9, 
-   3.602210264569529*^9}, {3.6022103087911053`*^9, 3.60221041311215*^9}}],
+   3.602210264569529*^9}, {3.6022103087911053`*^9, 3.60221041311215*^9}, 
+   3.6022117062272367`*^9}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -191,20 +111,52 @@ Cell[BoxData[
     RowBox[{"polypoints2", " ", "=", " ", 
      RowBox[{"getBoardBoundingPolygon", "[", 
       RowBox[{"images", "[", 
-       RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   
-   RowBox[{"showImagePolygon", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "]"}]}], " ", ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"showImagePolygon", "[", 
+     RowBox[{
+      RowBox[{"images", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EdgeForm", "[", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Red", ",", "Thick"}], "]"}], "]"}], ",", 
+         RowBox[{"Opacity", "[", "0", "]"}], ",", 
+         RowBox[{"polypoints2", " ", "//", " ", "Polygon"}]}], "}"}], "]"}]}],
+      "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"nx", ",", "ny"}], "}"}], "=", " ", 
     RowBox[{
      RowBox[{"images", "[", 
-      RowBox[{"[", "1", "]"}], "]"}], ",", 
-     RowBox[{"Graphics", "[", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"EdgeForm", "[", 
-         RowBox[{"Directive", "[", 
-          RowBox[{"Red", ",", "Thick"}], "]"}], "]"}], ",", 
-        RowBox[{"Opacity", "[", "0", "]"}], ",", "polypoints2"}], "}"}], 
-      "]"}]}], "]"}]}]}]], "Input",
+      RowBox[{"[", "1", "]"}], "]"}], " ", "//", " ", "ImageDimensions"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pts", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1280", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1280", ",", "720"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "720"}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"e", ",", "t"}], "}"}], " ", "=", " ", 
+    RowBox[{"FindGeometricTransform", "[", 
+     RowBox[{"pts", ",", "polypoints2"}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"ImagePerspectiveTransformation", "[", 
+    RowBox[{
+     RowBox[{"images", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", "t", ",", 
+     RowBox[{"DataRange", "\[Rule]", "Full"}]}], "]"}]}]}]], "Input",
  CellChangeTimes->{{3.583436315438991*^9, 3.583436368120729*^9}, {
    3.5834364274413424`*^9, 3.5834364692434883`*^9}, {3.58343659158645*^9, 
    3.583436596411428*^9}, {3.583436661419263*^9, 3.583436694759347*^9}, {
@@ -278,7 +230,35 @@ Cell[BoxData[
    3.60220907901328*^9, 3.602209093697915*^9}, {3.602210258982885*^9, 
    3.602210264569529*^9}, {3.602210498671363*^9, 3.6022105337323103`*^9}, {
    3.6022113244252157`*^9, 3.602211328733264*^9}, {3.602211393970851*^9, 
-   3.602211398017706*^9}}],
+   3.602211398017706*^9}, {3.602214652021428*^9, 3.602214874651539*^9}, {
+   3.6022149103058853`*^9, 3.6022149106737423`*^9}, {3.602214967317685*^9, 
+   3.602215047291031*^9}, {3.602215078615644*^9, 3.602215214163045*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1200", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1200", ",", "700"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "700"}], "}"}]}], "}"}]], "Input",
+ CellChangeTimes->{{3.602214948040131*^9, 3.6022149599939117`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"100", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"100", ",", "100"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "50"}], "}"}]}], "}"}]], "Input",
+ CellChangeTimes->{{3.6022148888594103`*^9, 3.602214889265244*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -446,9 +426,9 @@ Cell[BoxData[{
    RowBox[{"getBoardBoundingPolygon", "[", "img", "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"{", 
-  RowBox[{"img", ",", 
+  RowBox[{
    RowBox[{"maskBoardImage", "[", 
-    RowBox[{"img", ",", "poly"}], "]"}]}], "}"}]}], "Input",
+    RowBox[{"img", ",", "poly"}], "]"}], ",", "img"}], "}"}]}], "Input",
  CellChangeTimes->{{3.583436315438991*^9, 3.583436368120729*^9}, {
    3.5834364274413424`*^9, 3.5834364692434883`*^9}, {3.58343659158645*^9, 
    3.583436596411428*^9}, {3.583436661419263*^9, 3.583436694759347*^9}, {
@@ -524,7 +504,10 @@ Cell[BoxData[{
    3.602210566559972*^9, 3.60221057182828*^9}, {3.602210616390552*^9, 
    3.602210674859976*^9}, {3.602210794762252*^9, 3.602210798054055*^9}, {
    3.6022109641593227`*^9, 3.6022110475196743`*^9}, {3.602211191489561*^9, 
-   3.602211229182023*^9}, {3.60221142520605*^9, 3.6022114893229237`*^9}}],
+   3.602211229182023*^9}, {3.60221142520605*^9, 3.6022114893229237`*^9}, {
+   3.6022117257747726`*^9, 3.602211729516218*^9}, {3.602214125895406*^9, 
+   3.6022141849613237`*^9}, {3.6022142952324867`*^9, 3.602214338074551*^9}, {
+   3.6022143800679293`*^9, 3.60221442410928*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
@@ -2617,8 +2600,8 @@ Cell[BoxData[{
   3.5834364274413424`*^9, 3.5834364692434883`*^9}, {3.58343659158645*^9, 
   3.583436596411428*^9}, {3.583436661419263*^9, 3.583436670311504*^9}}]
 },
-WindowSize->{973, 695},
-WindowMargins->{{28, Automatic}, {Automatic, 70}},
+WindowSize->{1341, 845},
+WindowMargins->{{7, Automatic}, {0, Automatic}},
 FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (August 26, \
 2012)",
 StyleDefinitions->"Default.nb"
@@ -2634,51 +2617,53 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 8343, 153, 208, "Input"],
-Cell[8903, 175, 6525, 105, 88, "Input"],
-Cell[15431, 282, 5542, 78, 27, "Input"],
-Cell[20976, 362, 5556, 78, 27, "Input"],
-Cell[26535, 442, 5894, 84, 43, "Input"],
-Cell[32432, 528, 5638, 77, 73, "Input"],
-Cell[38073, 607, 469, 12, 43, "Input"],
-Cell[38545, 621, 92, 1, 27, "Input"],
-Cell[38640, 624, 6307, 85, 27, "Input"],
-Cell[44950, 711, 6247, 90, 43, "Input"],
-Cell[51200, 803, 6161, 88, 27, "Input"],
-Cell[57364, 893, 6143, 88, 27, "Input"],
-Cell[63510, 983, 141, 2, 27, "Input"],
-Cell[63654, 987, 5244, 71, 27, "Input"],
-Cell[68901, 1060, 5873, 89, 88, "Input"],
-Cell[74777, 1151, 5164, 77, 58, "Input"],
-Cell[79944, 1230, 1042, 26, 58, "Input"],
-Cell[80989, 1258, 1660, 44, 88, "Input"],
-Cell[82652, 1304, 459, 9, 43, "Input"],
-Cell[83114, 1315, 1092, 28, 43, "Input"],
-Cell[84209, 1345, 1847, 50, 88, "Input"],
-Cell[86059, 1397, 677, 14, 43, "Input"],
-Cell[86739, 1413, 1164, 28, 73, "Input"],
-Cell[87906, 1443, 4892, 72, 43, "Input"],
-Cell[92801, 1517, 4883, 72, 27, "Input"],
-Cell[97687, 1591, 4816, 70, 43, "Input"],
-Cell[102506, 1663, 5090, 77, 43, "Input"],
-Cell[107599, 1742, 5843, 101, 118, "Input"],
-Cell[113445, 1845, 6010, 101, 103, "Input"],
-Cell[119458, 1948, 6027, 96, 163, "Input"],
-Cell[125488, 2046, 118, 2, 27, "Input"],
-Cell[125609, 2050, 2729, 37, 27, "Input"],
-Cell[128341, 2089, 3107, 79, 268, "Input"],
-Cell[131451, 2170, 2195, 57, 148, "Input"],
-Cell[133649, 2229, 2463, 60, 283, "Input"],
-Cell[136115, 2291, 6628, 123, 353, "Input"],
-Cell[142746, 2416, 1003, 24, 58, "Input"],
-Cell[143752, 2442, 87, 1, 43, "Input"],
-Cell[143842, 2445, 970, 24, 43, "Input"],
-Cell[144815, 2471, 740, 17, 27, "Input"],
-Cell[145558, 2490, 631, 14, 27, "Input"],
-Cell[146192, 2506, 1304, 35, 73, "Input"],
-Cell[147499, 2543, 1744, 44, 58, "Input"],
-Cell[149246, 2589, 759, 14, 27, "Input"],
-Cell[150008, 2605, 556, 12, 43, "Input"]
+Cell[557, 20, 5366, 73, 27, "Input"],
+Cell[5926, 95, 7880, 139, 163, "Input"],
+Cell[13809, 236, 366, 11, 27, InheritFromParent],
+Cell[14178, 249, 363, 11, 27, InheritFromParent],
+Cell[14544, 262, 5542, 78, 27, "Input"],
+Cell[20089, 342, 5556, 78, 27, "Input"],
+Cell[25648, 422, 6097, 87, 43, "Input"],
+Cell[31748, 511, 5638, 77, 73, "Input"],
+Cell[37389, 590, 469, 12, 27, "Input"],
+Cell[37861, 604, 92, 1, 27, "Input"],
+Cell[37956, 607, 6307, 85, 27, "Input"],
+Cell[44266, 694, 6247, 90, 43, "Input"],
+Cell[50516, 786, 6161, 88, 27, "Input"],
+Cell[56680, 876, 6143, 88, 27, "Input"],
+Cell[62826, 966, 141, 2, 27, "Input"],
+Cell[62970, 970, 5244, 71, 27, "Input"],
+Cell[68217, 1043, 5873, 89, 88, "Input"],
+Cell[74093, 1134, 5164, 77, 58, "Input"],
+Cell[79260, 1213, 1042, 26, 58, "Input"],
+Cell[80305, 1241, 1660, 44, 73, "Input"],
+Cell[81968, 1287, 459, 9, 43, "Input"],
+Cell[82430, 1298, 1092, 28, 43, "Input"],
+Cell[83525, 1328, 1847, 50, 58, "Input"],
+Cell[85375, 1380, 677, 14, 43, "Input"],
+Cell[86055, 1396, 1164, 28, 58, "Input"],
+Cell[87222, 1426, 4892, 72, 43, "Input"],
+Cell[92117, 1500, 4883, 72, 27, "Input"],
+Cell[97003, 1574, 4816, 70, 43, "Input"],
+Cell[101822, 1646, 5090, 77, 43, "Input"],
+Cell[106915, 1725, 5843, 101, 118, "Input"],
+Cell[112761, 1828, 6010, 101, 103, "Input"],
+Cell[118774, 1931, 6027, 96, 163, "Input"],
+Cell[124804, 2029, 118, 2, 27, "Input"],
+Cell[124925, 2033, 2729, 37, 27, "Input"],
+Cell[127657, 2072, 3107, 79, 268, "Input"],
+Cell[130767, 2153, 2195, 57, 148, "Input"],
+Cell[132965, 2212, 2463, 60, 283, "Input"],
+Cell[135431, 2274, 6628, 123, 353, "Input"],
+Cell[142062, 2399, 1003, 24, 58, "Input"],
+Cell[143068, 2425, 87, 1, 43, "Input"],
+Cell[143158, 2428, 970, 24, 43, "Input"],
+Cell[144131, 2454, 740, 17, 27, "Input"],
+Cell[144874, 2473, 631, 14, 27, "Input"],
+Cell[145508, 2489, 1304, 35, 73, "Input"],
+Cell[146815, 2526, 1744, 44, 58, "Input"],
+Cell[148562, 2572, 759, 14, 27, "Input"],
+Cell[149324, 2588, 556, 12, 43, "Input"]
 }
 ]
 *)

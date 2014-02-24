@@ -42,7 +42,7 @@ findBoundaryVertices[lines_]:=Module[{segments,intersections,pointsraw},
 ]
 
 getBoardBoundingPolygon[img_]:=Module[{},
-   img // getBoardBoundaryLines // findBoundaryVertices // Polygon
+   img // getBoardBoundaryLines // findBoundaryVertices 
 ]
 
 maskBoardImage[img_,boardBoundingPoly_]:=Module[{},

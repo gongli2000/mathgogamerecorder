@@ -1,5 +1,9 @@
 (* ::Package:: *)
 
+
+MaxBy[list_, fun_] := list[[First@Ordering[fun /@ list, -1]]]
+MinBy[list_, fun_] := list[[First@Ordering[fun /@ list, 1]]]
+
 showImageLines[image_,lines_]:=Show[image,Graphics[{Thick,Orange,Line/@ lines}]]
 
 showImagePoints[image_,points_]:= Show[image,Graphics[{PointSize[Large],Black,Point /@ points}]]

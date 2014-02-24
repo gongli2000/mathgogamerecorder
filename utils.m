@@ -32,6 +32,11 @@ getBoardBoundaryLines[boardimage_]:=Module[{k,aa,board,src,boundaryimage},
 
 ]
 
+geoTransform[img_,boundingpoly_]:=Module[{nx,ny,pts},
+   {nx,ny}=img//ImageDimensions;
+   pts = {{0,0},{nx,0},{nx,ny},{0,ny}};
+ FindGeometricTransform[pts,boundingpoly]]
+
 computePoint[{{{p1_,p2_},{p3_,p4_}},{t_,s_}}]:= t*p1+(1-t)*p2;
 
 findBoundaryVertices[lines_]:=Module[{segments,intersections,pointsraw},

@@ -58,3 +58,9 @@ maskBoardImage[img_,boardBoundingPoly_]:=Module[{},
                           PlotRange->{{0,nx},{0,ny}}],
                            ColorSpace->"Grayscale"];
      ImageMultiply[img,mask]]
+
+
+exportImages[dir_,rectimages_]:=Module[{i},
+         Do[Export[dir <> "/rectimage_" <> ToString[i] <> ".jpg" ,
+                     rectimages[[i]]],{i,1,Length[rectimages]}]
+]

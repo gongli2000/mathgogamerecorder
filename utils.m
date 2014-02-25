@@ -1,6 +1,5 @@
 (* ::Package:: *)
 
-
 MaxBy[list_, fun_] := list[[First@Ordering[fun /@ list, -1]]]
 MinBy[list_, fun_] := list[[First@Ordering[fun /@ list, 1]]]
 
@@ -21,6 +20,16 @@ makefilenameSnow[n_]:="IMG_" <> IntegerString[n] <> ".JPG"
 getfile[filename_]:=ColorConvert[Import[filename],"Grayscale"];
 
 getfileColor[filename_]:=Import[filename];
+
+getBoardLines[rectImage_]:=
+  Module[{src,white,srcAdjusted,components,largestComponent},
+   src=ColorConvert[rectImage,"Grayscale"];
+   white=Closing[src,DiskMatrix[5]];
+   srcAdjusted=Image[ImageData[src]/ImageData[white]]
+   components=ComponentMeasurements[ColorNegate@Binarize[srcAdjusted],{"ConvexArea","Mask"}][[All,2]];
+   largestComponent=Image[SortBy[components,First][[-1,2]]];
+   ImageLines[EdgeDetect[largestComponent]]
+]
 
 getNImagesInDir[dir_,n_]:= Module[{filenames},
    SetDirectory[dir];

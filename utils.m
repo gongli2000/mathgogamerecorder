@@ -47,3 +47,19 @@ exportImages[dir_,rectimages_]:=Module[{i},
          Do[Export[dir <> "/rectimage_" <> ToString[i] <> ".jpg" ,
                      rectimages[[i]]],{i,1,Length[rectimages]}]
 ]
+
+
+blackstones[img_]:=Binarize[img,{.3,1}]//ColorNegate//Closing[#,3]& //ColorNegate;
+whitestones[img_]:=Binarize[img,{0,.9}]//ColorNegate;
+
+diffImage2[img_,colorfn_,i_,j_]:= ImageDifference[img[[i]]//colorfn,img[[j]] //colorfn];
+
+exportRectImages[dir_,images_]:=Module[{i},
+Do[Export[dir <> "/rectimage_" <> ToString[i] <> ".jpg" ,
+ GraphicsGrid[{
+{images[[i]],images[[i+1]]}, 
+{diffImage2[images,whitestones,i,i+1] ,diffImage2[images,blackstones,i,i+1] }},
+ImageSize->{400,400}]],
+{i,1,Length[rectimages]-5}]
+]
+

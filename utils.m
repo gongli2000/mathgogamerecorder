@@ -28,6 +28,9 @@ getNImagesInDir[dir_,n_]:= Module[{filenames},
    SortBy[FileNames["*.JPG"],ToExpression[StringCases[#,RegularExpression["\\d+"]][[1]]]&] // Take[#,n]& // Map[getfileColor[#]&,#]&]
 
 
+whitenImage[img_]:=Module[{},
+	Image[ImageData[Closing[img,DiskMatrix[5]]]/ImageData[white]]
+]
 
 maskBoardImage[img_,boardBoundingPoly_]:=Module[{},
 	{nx,ny}=ImageDimensions[img];

@@ -8,13 +8,6 @@ getBoardLines[rectImage_]:= Module[{},
    largestComponent=Image[SortBy[components,First][[-1,2]]];
    ImageLines[EdgeDetect[largestComponent]]
 ]
-(*
- 
-   components=ComponentMeasurements[ColorNegate@Binarize[srcAdjusted],{"ConvexArea","Mask"}][[All,2]];
-   largestComponent=Image[SortBy[components,First][[-1,2]]];
-   ImageLines[EdgeDetect[largestComponent]]*)
 
-
-
-ff[x_]:= x+1;
-
+isHorizontal[{{x1_,y1_},{x2_,y2_}},eps_]:=Abs[y1-y2]< eps
+isVertical[{{x1_,y1_},{x2_,y2_}},eps_]:=Abs[x1-x2]< eps

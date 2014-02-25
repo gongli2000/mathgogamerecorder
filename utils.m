@@ -39,6 +39,10 @@ maskBoardImage[img_,boardBoundingPoly_]:=Module[{},
      ImageMultiply[img,mask]]
 
 
+
+
+
+
 exportImages[dir_,rectimages_]:=Module[{i},
          Do[Export[dir <> "/rectimage_" <> ToString[i] <> ".jpg" ,
                      rectimages[[i]]],{i,1,Length[rectimages]}]

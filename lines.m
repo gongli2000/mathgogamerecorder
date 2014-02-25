@@ -1,7 +1,11 @@
 (* ::Package:: *)
 
+<<"~/Documents/mathematica app/mathgogamerecorder/utils.m"
+
 computePoint[{{{p1_,p2_},{p3_,p4_}},{t_,s_}}]:= t*p1+(1-t)*p2;
 
+isHorizontal[{{x1_,y1_},{x2_,y2_}},eps_]:=Abs[y1-y2]< eps
+isVertical[{{x1_,y1_},{x2_,y2_}},eps_]:=Abs[x1-x2]< eps
 
 getBoardBoundaryLines[boardimage_]:=Module[{k,aa,board,src,boundaryimage},
 	src=ColorConvert[boardimage,"Grayscale"];
@@ -31,6 +35,23 @@ getBoardBoundingPolygon[img_]:=Module[{},
 ]
 
 
+isHorizontal[{{x1_,y1_},{x2_,y2_}},eps_]:=Abs[y1-y2]< eps
+isVertical[{{x1_,y1_},{x2_,y2_}},eps_]:=Abs[x1-x2]< eps
+
+getGridBoundingPolygon[rectImage_]:=Module[{hlines,vlines,lb,rb,tb,bb},
+	lines =getBoardLines[rectImage];
+	hlines = Select[lines,isHorizontal[#,20]&];
+
+	
+	vlines =Select[lines,isVertical[#,20]&];
+	lb = MinBy[vlines,#[[1]][[1]]&];
+	rb = MaxBy[vlines,#[[1]][[1]]&];
+	tb = MaxBy[hlines,#[[1]][[2]]&];
+	bb= MinBy[hlines,#[[1]][[2]]&];
+    findBoundaryVertices[{lb,rb,tb,bb}]
+
+
+]
 
 getBoardLines[rectImage_]:= Module[{},
    src=ColorConvert[rectImage,"Grayscale"];
@@ -41,5 +62,3 @@ getBoardLines[rectImage_]:= Module[{},
    ImageLines[EdgeDetect[largestComponent]]
 ]
 
-isHorizontal[{{x1_,y1_},{x2_,y2_}},eps_]:=Abs[y1-y2]< eps
-isVertical[{{x1_,y1_},{x2_,y2_}},eps_]:=Abs[x1-x2]< eps

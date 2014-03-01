@@ -23,9 +23,9 @@ getfileColor[filename_]:=Import[filename];
 
 
 
-getNImagesInDir[dir_,n_]:= Module[{filenames},
+getNImagesInDir[dir_,ext_,n_]:= Module[{filenames},
    SetDirectory[dir];
-   SortBy[FileNames["*.JPG"],ToExpression[StringCases[#,RegularExpression["\\d+"]][[1]]]&] // Take[#,n]& // Map[getfileColor[#]&,#]&]
+   SortBy[FileNames["*." <> ext ],ToExpression[StringCases[#,RegularExpression["\\d+"]][[1]]]&] // Take[#,n]& // Map[getfileColor[#]&,#]&]
 
 
 
@@ -48,11 +48,23 @@ exportImages[dir_,rectimages_]:=Module[{i},
                      rectimages[[i]]],{i,1,Length[rectimages]}]
 ]
 
+applyTransform[image_,boundingpoly_]:=
+Module[{e,t},
+  {e,t}=geoTransform[images[[1]],boundingpoly];
+  Table[ImagePerspectiveTransformation[images[[k]],t,DataRange->Full]// ImageRotate // ImageResize[#,{500,520}]&,{k,1,Length[images]}]
+]
+
+cleanupimage2[img_,{x_,y_}]:= Binarize [img,{x,y}]// DeleteSmallComponents[#,Method->"Mean" ]&// ColorNegate // DeleteSmallComponents[#,10]& ;
+
+cleanupimage[img_,{x_,y_}]:= Binarize [FillingTransform@ColorNegate@img,Method->"MinimumError"]// DeleteSmallComponents[#,Method->"Mean" ]&// ColorNegate // DeleteSmallComponents[#,10]&;
+
+cleanupimage3[img_,{x_,y_}]:= Binarize [FillingTransform@ColorNegate@img,Method->"MinimumError"]// DeleteSmallComponents[#,Method->"Mean" ]&//ColorNegate
+cleanupimage4[img_,{x_,y_}]:= Binarize [FillingTransform@img,{x,y}]//ColorNegate
 
 blackstones[img_]:=Binarize[img,{.3,1}]//ColorNegate//Closing[#,3]& //ColorNegate;
 whitestones[img_]:=Binarize[img,{0,.9}]//ColorNegate;
 
-diffImage2[img_,colorfn_,i_,j_]:= ImageDifference[img[[i]]//colorfn,img[[j]] //colorfn];
+diffImage2[img_,colorfn_,i_,j_]:= ImageDifference[img[[j]]//colorfn,img[[i]]//colorfn ];
 
 exportRectImages[dir_,images_]:=Module[{i},
 Do[Export[dir <> "/rectimage_" <> ToString[i] <> ".jpg" ,
@@ -60,6 +72,12 @@ Do[Export[dir <> "/rectimage_" <> ToString[i] <> ".jpg" ,
 {images[[i]],images[[i+1]]}, 
 {diffImage2[images,whitestones,i,i+1] ,diffImage2[images,blackstones,i,i+1] }},
 ImageSize->{400,400}]],
-{i,1,Length[rectimages]-5}]
+{i,1,Length[images]-5}]
 ]
 
+manipulateImages[images_]:=Module[{i},
+Manipulate[
+ GraphicsGrid[{
+{images[[i]],images[[i+1]]}, 
+{diffImage2[images,whitestones,i,i+1] ,diffImage2[images,blackstones,i,i+1] }}],
+{i,1,Length[images]-5}]]

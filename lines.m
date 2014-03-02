@@ -1,6 +1,8 @@
 (* ::Package:: *)
 
 <<"~/Documents/mathematica app/mathgogamerecorder/utils.m"
+<<ComputationalGeometry`
+
 
 computePoint[{{{p1_,p2_},{p3_,p4_}},{t_,s_}}]:= t*p1+(1-t)*p2;
 

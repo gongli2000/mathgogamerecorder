@@ -25,7 +25,15 @@ getfileColor[filename_]:=Import[filename];
 
 getNImagesInDir[dir_,ext_,n_]:= Module[{filenames},
    SetDirectory[dir];
-   SortBy[FileNames["*." <> ext ],ToExpression[StringCases[#,RegularExpression["\\d+"]][[1]]]&] // Take[#,n]& // Map[getfileColor[#]&,#]&]
+   filenames = SortBy[FileNames["*." <> ext ],ToExpression[StringCases[#,RegularExpression["\\d+"]][[1]]]&] ;
+   n = If[n < 0 , Length[filenames],n];
+   filenames // Take[#,n]& // Map[getfileColor[#]&,#]&]
+
+getNImageFileNames[dir_,ext_]:= Module[{filenames},
+   SetDirectory[dir];
+   filenames = SortBy[FileNames["*." <> ext ],ToExpression[StringCases[#,RegularExpression["\\d+"]][[1]]]&] ;
+   n = If[n < 0 , Length[filenames],n];
+   filenames ]
 
 
 
@@ -47,6 +55,10 @@ exportImages[dir_,rectimages_]:=Module[{i},
          Do[Export[dir <> "/rectimage_" <> ToString[i] <> ".jpg" ,
                      rectimages[[i]]],{i,1,Length[rectimages]}]
 ]
+
+exportRawImages[dir_,rectfilenames_]:=
+  Do[Export[dir <> "/rectimage_" <> ToString[i] <> ".jpg" ,
+                     getfileColor[rectfilenames[[i]]]],{i,1,Length[rectfilenames]}]
 
 applyTransform[image_,boundingpoly_]:=
 Module[{e,t},

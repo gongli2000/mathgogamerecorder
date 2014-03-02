@@ -1,0 +1,141 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5285,        132]
+NotebookOptionsPosition[      4918,        115]
+NotebookOutlinePosition[      5274,        131]
+CellTagsIndexPosition[      5231,        128]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "dir", " ", "=", " ", 
+     "\"\</Users/macbookpro/Documents/recordertests/shusaku\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rectfilenames", " ", "=", " ", 
+     RowBox[{"getNImageFileNames", "[", 
+      RowBox[{"dir", ",", "\"\<jpg\>\""}], "]"}]}], " ", ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.602776094329401*^9, 3.602776096678944*^9}, {
+   3.602776195684503*^9, 3.6027761986810427`*^9}, {3.6027765242533216`*^9, 
+   3.602776530544794*^9}, 3.602783097446919*^9, {3.602783254654583*^9, 
+   3.602783254972513*^9}, {3.602783583519533*^9, 3.602783612159349*^9}, {
+   3.602783665713295*^9, 3.602783755208192*^9}, {3.602784028724663*^9, 
+   3.602784055814283*^9}, {3.602784098186562*^9, 3.602784100650251*^9}, {
+   3.602784154871516*^9, 3.602784208389036*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.602776094329401*^9, 3.602776096678944*^9}, {
+   3.602776195684503*^9, 3.6027761986810427`*^9}, {3.6027765242533216`*^9, 
+   3.602776530544794*^9}, 3.602783097446919*^9, {3.602783254654583*^9, 
+   3.602783254972513*^9}, {3.602783583519533*^9, 3.602783612159349*^9}, {
+   3.602783665713295*^9, 3.602783755208192*^9}, {3.602784028724663*^9, 
+   3.602784055814283*^9}, {3.602784098186562*^9, 3.602784100650251*^9}, {
+   3.602784154871516*^9, 3.602784194450886*^9}, {3.60278422704596*^9, 
+   3.602784279412817*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.602776094329401*^9, 3.602776096678944*^9}, {
+   3.602776195684503*^9, 3.6027761986810427`*^9}, {3.6027765242533216`*^9, 
+   3.602776530544794*^9}, 3.602783097446919*^9, {3.602783254654583*^9, 
+   3.602783254972513*^9}, {3.602783583519533*^9, 3.602783612159349*^9}, {
+   3.602783665713295*^9, 3.602783755208192*^9}, {3.602784028724663*^9, 
+   3.602784055814283*^9}, {3.602784103625368*^9, 3.602784122512813*^9}, {
+   3.6027842367709312`*^9, 3.6027842725910473`*^9}, 3.602784564530471*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{
+      "\"\<~/Documents/rectimages\>\"", " ", "<>", " ", "\"\</rectimage_\>\"",
+        " ", "<>", " ", 
+       RowBox[{"ToString", "[", "i", "]"}], " ", "<>", " ", "\"\<.jpg\>\""}], 
+      " ", ",", "\[IndentingNewLine]", " ", 
+      RowBox[{
+       RowBox[{"image1", " ", "=", 
+        RowBox[{"getfileColor", "[", 
+         RowBox[{"rectimages", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"image2", " ", "=", " ", 
+        RowBox[{"getfileColor", "[", 
+         RowBox[{"rectimages", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", "+", "1"}], "]"}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"GraphicsGrid", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ImageDifference", "[", 
+               RowBox[{"image1", ",", "image2"}], "]"}], "//", "Binarize"}], "//",
+              "DeleteSmallComponents"}], "}"}], ",", "\[IndentingNewLine]", 
+           "              ", 
+           RowBox[{"{", 
+            RowBox[{"image1", " ", ",", "image2"}], " ", "}"}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{
+       RowBox[{"Length", "[", "rectimages", "]"}], "-", "5"}]}], "}"}]}], 
+   "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6027761328744593`*^9, 3.602776171835598*^9}, {
+  3.6027763163797903`*^9, 3.60277636690735*^9}, {3.602776408043158*^9, 
+  3.60277640988868*^9}, {3.6027795765925617`*^9, 3.602779577947575*^9}, {
+  3.602779611377442*^9, 3.602779644622055*^9}, {3.602779676622505*^9, 
+  3.6027796933338213`*^9}, {3.602782587124476*^9, 3.6027825895615797`*^9}, {
+  3.602782701222612*^9, 3.602782703739847*^9}, {3.60278290094034*^9, 
+  3.602782901905442*^9}, {3.602783001550641*^9, 3.602783004660392*^9}, {
+  3.6027845834032784`*^9, 3.60278459813695*^9}, {3.602784645656679*^9, 
+  3.602784691955885*^9}}]
+},
+WindowSize->{1167, 724},
+WindowMargins->{{64, Automatic}, {Automatic, 58}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (August 26, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 899, 19, 73, "Input"],
+Cell[1459, 41, 559, 8, 27, "Input"],
+Cell[2021, 51, 590, 8, 58, "Input"],
+Cell[2614, 61, 2300, 52, 148, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

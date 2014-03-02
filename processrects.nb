@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      5625,        148]
-NotebookOptionsPosition[      5187,        128]
-NotebookOutlinePosition[      5543,        144]
-CellTagsIndexPosition[      5500,        141]
+NotebookDataLength[      5733,        150]
+NotebookOptionsPosition[      5295,        130]
+NotebookOutlinePosition[      5651,        146]
+CellTagsIndexPosition[      5608,        143]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -84,24 +84,26 @@ Cell[BoxData[
           RowBox[{"[", 
            RowBox[{"i", "+", "1"}], "]"}], "]"}], "]"}]}], ";", 
        "\[IndentingNewLine]", 
+       RowBox[{"imagediff", " ", "=", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"ImageDifference", "[", 
+           RowBox[{"image1", ",", "image2"}], "]"}], "//", "Binarize"}], "//",
+          "DeleteSmallComponents"}]}], " ", ";", "\[IndentingNewLine]", 
        RowBox[{"GraphicsGrid", "[", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"{", "\[IndentingNewLine]", 
           RowBox[{
            RowBox[{"{", 
-            RowBox[{
+            RowBox[{"imagediff", ",", " ", 
              RowBox[{
-              RowBox[{
+              RowBox[{"imagediff", "//", " ", 
                RowBox[{
-                RowBox[{"ImageDifference", "[", 
-                 RowBox[{"image1", ",", "image2"}], "]"}], "//", "Binarize"}],
-                "//", "DeleteSmallComponents"}], " ", "//", " ", 
-              RowBox[{
-               RowBox[{"MorphologicalComponents", "[", 
-                RowBox[{"#", ",", 
-                 RowBox[{"Method", "\[Rule]", "\"\<BoundingDisk\>\""}]}], 
-                "]"}], "&"}]}], "//", "Colorize"}], "}"}], ",", 
-           "\[IndentingNewLine]", "              ", 
+                RowBox[{"MorphologicalComponents", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"Method", "\[Rule]", "\"\<BoundingDisk\>\""}]}], 
+                 "]"}], "&"}]}], "//", "Colorize"}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
            RowBox[{"{", 
             RowBox[{"image1", " ", ",", "image2"}], " ", "}"}]}], "}"}], ",", 
          "\[IndentingNewLine]", 
@@ -114,12 +116,12 @@ Cell[BoxData[
        RowBox[{"Length", "[", "rectfilenames", "]"}], "-", "5"}]}], "}"}]}], 
    "]"}], "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQBmIQPen3bI4D1185Wuyt4gXRduo98iCamfOuKojuTWTU
+1:eJxTTMoPSmViYGAQAWIQPen3bI4D1185Wuyt4gXRduo98iCamfOuKojuTWTU
 BtGCBTZg2uWb0PaDQLozyA5MM4rk7AbRD55P3g+iJ7yefBhEr1q36iiI3vo7
 Wf8wkC77sRFML5Zfbguir6z5DqZdxOeFgeikn3vA9K15hskg+p3iVDC94vkb
 jSNA+mniES0Q3cK81QBEz5lWZwait0S8LwDRJVxXSkC0gYhoE4g2uesKppNu
 2rSD6J/6vWA6wnTWZBDdsPYumH4TMX0WiN5j8xlML5J6txxE3+MXXAmi5xX2
-7gDRXX1ZO0E0AIOFtlc=
+7gDRXX1ZO0F0zdyrh0G0ACffcRANADvrv4M=
   "]],
 
 Cell[BoxData["$Aborted"], "Output",
@@ -147,8 +149,8 @@ Cell[557, 20, 947, 20, 73, "Input"],
 Cell[1507, 42, 559, 8, 27, "Input"],
 Cell[2069, 52, 590, 8, 58, "Input"],
 Cell[CellGroupData[{
-Cell[2684, 64, 2385, 58, 148, "Input"],
-Cell[5072, 124, 99, 1, 27, "Output"]
+Cell[2684, 64, 2493, 60, 163, "Input"],
+Cell[5180, 126, 99, 1, 27, "Output"]
 }, Open  ]]
 }
 ]

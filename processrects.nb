@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      5285,        132]
-NotebookOptionsPosition[      4918,        115]
-NotebookOutlinePosition[      5274,        131]
-CellTagsIndexPosition[      5231,        128]
+NotebookDataLength[      5625,        148]
+NotebookOptionsPosition[      5187,        128]
+NotebookOutlinePosition[      5543,        144]
+CellTagsIndexPosition[      5500,        141]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -37,7 +37,8 @@ Cell[BoxData[
    3.602783254972513*^9}, {3.602783583519533*^9, 3.602783612159349*^9}, {
    3.602783665713295*^9, 3.602783755208192*^9}, {3.602784028724663*^9, 
    3.602784055814283*^9}, {3.602784098186562*^9, 3.602784100650251*^9}, {
-   3.602784154871516*^9, 3.602784208389036*^9}}],
+   3.602784154871516*^9, 3.602784208389036*^9}, {3.6027854598126*^9, 
+   3.602785466111239*^9}}],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.602776094329401*^9, 3.602776096678944*^9}, {
@@ -59,6 +60,8 @@ Cell[BoxData[
    3.602784055814283*^9}, {3.602784103625368*^9, 3.602784122512813*^9}, {
    3.6027842367709312`*^9, 3.6027842725910473`*^9}, 3.602784564530471*^9}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"Do", "[", 
@@ -73,11 +76,11 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"image1", " ", "=", 
         RowBox[{"getfileColor", "[", 
-         RowBox[{"rectimages", "[", 
+         RowBox[{"rectfilenames", "[", 
           RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
        RowBox[{"image2", " ", "=", " ", 
         RowBox[{"getfileColor", "[", 
-         RowBox[{"rectimages", "[", 
+         RowBox[{"rectfilenames", "[", 
           RowBox[{"[", 
            RowBox[{"i", "+", "1"}], "]"}], "]"}], "]"}]}], ";", 
        "\[IndentingNewLine]", 
@@ -88,10 +91,17 @@ Cell[BoxData[
            RowBox[{"{", 
             RowBox[{
              RowBox[{
-              RowBox[{"ImageDifference", "[", 
-               RowBox[{"image1", ",", "image2"}], "]"}], "//", "Binarize"}], "//",
-              "DeleteSmallComponents"}], "}"}], ",", "\[IndentingNewLine]", 
-           "              ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"ImageDifference", "[", 
+                 RowBox[{"image1", ",", "image2"}], "]"}], "//", "Binarize"}],
+                "//", "DeleteSmallComponents"}], " ", "//", " ", 
+              RowBox[{
+               RowBox[{"MorphologicalComponents", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{"Method", "\[Rule]", "\"\<BoundingDisk\>\""}]}], 
+                "]"}], "&"}]}], "//", "Colorize"}], "}"}], ",", 
+           "\[IndentingNewLine]", "              ", 
            RowBox[{"{", 
             RowBox[{"image1", " ", ",", "image2"}], " ", "}"}]}], "}"}], ",", 
          "\[IndentingNewLine]", 
@@ -101,17 +111,20 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"i", ",", "1", ",", 
       RowBox[{
-       RowBox[{"Length", "[", "rectimages", "]"}], "-", "5"}]}], "}"}]}], 
+       RowBox[{"Length", "[", "rectfilenames", "]"}], "-", "5"}]}], "}"}]}], 
    "]"}], "\[IndentingNewLine]"}]], "Input",
- CellChangeTimes->{{3.6027761328744593`*^9, 3.602776171835598*^9}, {
-  3.6027763163797903`*^9, 3.60277636690735*^9}, {3.602776408043158*^9, 
-  3.60277640988868*^9}, {3.6027795765925617`*^9, 3.602779577947575*^9}, {
-  3.602779611377442*^9, 3.602779644622055*^9}, {3.602779676622505*^9, 
-  3.6027796933338213`*^9}, {3.602782587124476*^9, 3.6027825895615797`*^9}, {
-  3.602782701222612*^9, 3.602782703739847*^9}, {3.60278290094034*^9, 
-  3.602782901905442*^9}, {3.602783001550641*^9, 3.602783004660392*^9}, {
-  3.6027845834032784`*^9, 3.60278459813695*^9}, {3.602784645656679*^9, 
-  3.602784691955885*^9}}]
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPen3bI4D1185Wuyt4gXRduo98iCamfOuKojuTWTU
+BtGCBTZg2uWb0PaDQLozyA5MM4rk7AbRD55P3g+iJ7yefBhEr1q36iiI3vo7
+Wf8wkC77sRFML5Zfbguir6z5DqZdxOeFgeikn3vA9K15hskg+p3iVDC94vkb
+jSNA+mniES0Q3cK81QBEz5lWZwait0S8LwDRJVxXSkC0gYhoE4g2uesKppNu
+2rSD6J/6vWA6wnTWZBDdsPYumH4TMX0WiN5j8xlML5J6txxE3+MXXAmi5xX2
+7gDRXX1ZO0E0AIOFtlc=
+  "]],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.602785613071451*^9, 3.602785744758368*^9}]
+}, Open  ]]
 },
 WindowSize->{1167, 724},
 WindowMargins->{{64, Automatic}, {Automatic, 58}},
@@ -130,10 +143,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 899, 19, 73, "Input"],
-Cell[1459, 41, 559, 8, 27, "Input"],
-Cell[2021, 51, 590, 8, 58, "Input"],
-Cell[2614, 61, 2300, 52, 148, "Input"]
+Cell[557, 20, 947, 20, 73, "Input"],
+Cell[1507, 42, 559, 8, 27, "Input"],
+Cell[2069, 52, 590, 8, 58, "Input"],
+Cell[CellGroupData[{
+Cell[2684, 64, 2385, 58, 148, "Input"],
+Cell[5072, 124, 99, 1, 27, "Output"]
+}, Open  ]]
 }
 ]
 *)
